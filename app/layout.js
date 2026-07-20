@@ -1,4 +1,5 @@
 import { Poppins, Inter } from "next/font/google";
+import { AppRouterCacheProvider } from "@mui/material-nextjs/v16-appRouter";
 import "./globals.css";
 import Providers from "./providers";
 
@@ -40,7 +41,7 @@ export const metadata = {
         ],
         locale: 'en_IN',
         type: 'website',
-    },
+        },
     twitter: {
         card: "summary_large_image",
         title: "10KPlots - Invest in Land. Invest in Life.",
@@ -74,7 +75,9 @@ export default function RootLayout({ children }) {
     return (
         <html lang="en" className={`${poppins.variable} ${inter.variable}`}>
             <body>
-                <Providers>{children}</Providers>
+                <AppRouterCacheProvider options={{ enableCssLayer: true }}>
+                    <Providers>{children}</Providers>
+                </AppRouterCacheProvider>
             </body>
         </html>
     );

@@ -40,25 +40,20 @@ export default function Home() {
                 {/* Section 2: Heritage brand storytelling block */}
                 <Story />
 
-                {/* Section 3: flagship project detail deck - Hidden (No active projects)
+                {/* Section 3: flagship project detail deck */}
                 <FeaturedProject />
-                */}
 
-                {/* Section 3.5: Strategic Investment Benefits - Hidden (No active projects)
+                {/* Section 3.5: Strategic Investment Benefits */}
                 <WhyInvest />
-                */}
 
-                {/* Section 4: Multi-level Interactive blueprint viewer - Hidden (No active projects)
+                {/* Section 4: Multi-level Interactive blueprint viewer */}
                 <MasterPlan />
-                */}
 
-                {/* Section 5: Masonry photography exhibit - Hidden (No active projects)
+                {/* Section 5: Masonry photography exhibit */}
                 <Gallery />
-                */}
 
-                {/* Section 6: Location proximity & mapping coordinate matrix - Hidden (No active projects)
+                {/* Section 6: Location proximity & mapping coordinate matrix */}
                 <Location />
-                */}
 
                 {/* Section 7: Conversions & private client advisory desk */}
                 <Contact />

@@ -215,13 +215,15 @@ export default function MasterPlan() {
                 }}
                 TransitionComponent={Zoom}
                 TransitionProps={{ timeout: 500 }}
-                PaperProps={{
-                    sx: {
-                        backgroundColor: '#0F172A',
-                        backgroundImage: 'none',
-                        display: 'flex',
-                        flexDirection: 'column',
-                    },
+                slotProps={{
+                    paper: {
+                        sx: {
+                            backgroundColor: '#0F172A',
+                            backgroundImage: 'none',
+                            display: 'flex',
+                            flexDirection: 'column',
+                        }
+                    }
                 }}
             >
                 {/* Fullscreen Action Toolbar */}

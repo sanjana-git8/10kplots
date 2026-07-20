@@ -56,10 +56,9 @@ export default function Gallery() {
                             fontWeight: 600,
                             fontSize: '0.85rem',
                             display: 'block',
-                            mb: 1
+                            mb: -20
                         }}
                     >
-                        VISUAL PORTFOLIO
                     </Typography>
                     <Typography
                         variant="h2"
@@ -72,7 +71,7 @@ export default function Gallery() {
                             mb: 3
                         }}
                     >
-                        ESTATE GALLERY
+                        PROJECT GALLERY
                     </Typography>
                     <Box
                         sx={{
@@ -84,12 +83,10 @@ export default function Gallery() {
                     />
                 </Box>
 
-                {/* Elegant Pseudo-Masonry Layout */}
+                {/* Elegant Uniform Grid Layout */}
                 <Grid container spacing={3}>
                     {gallery.map((image, idx) => {
-                        // Alternate heights to simulate a high-end structural masonry grid
-                        const heightConfigs = [320, 480, 380, 450, 350, 420];
-                        const itemHeight = heightConfigs[idx % heightConfigs.length];
+                        const itemHeight = 360; // Uniform height for all grid items
 
                         return (
                             <Grid size={{ xs: 12, sm: 6, md: 4 }} key={image.id}>
@@ -138,13 +135,15 @@ export default function Gallery() {
                                     >
                                         {/* Background Visual Container */}
                                         <Box
+                                            component="img"
                                             className="gallery-img-bg"
+                                            src={image.url}
+                                            alt={image.title}
+                                            title={`Snycon United Serenity - ${image.title}`}
                                             sx={{
                                                 width: '100%',
                                                 height: '100%',
-                                                backgroundImage: `url(${image.url})`,
-                                                backgroundSize: 'cover',
-                                                backgroundPosition: 'center',
+                                                objectFit: 'cover',
                                                 transition: 'transform 1.2s cubic-bezier(0.16, 1, 0.3, 1)'
                                             }}
                                         />
@@ -177,19 +176,7 @@ export default function Gallery() {
                                             >
                                                 {image.title}
                                             </Typography>
-                                            <Typography
-                                                variant="body2"
-                                                sx={{
-                                                    color: '#C59D5F',
-                                                    fontFamily: '"Inter", sans-serif',
-                                                    fontSize: '0.75rem',
-                                                    letterSpacing: '0.15em',
-                                                    textTransform: 'uppercase',
-                                                    mt: 0.5
-                                                }}
-                                            >
-                                                Exquisite Land Parcel
-                                            </Typography>
+
                                         </Box>
                                     </Box>
                                 </motion.div>
@@ -205,15 +192,17 @@ export default function Gallery() {
                 fullScreen
                 open={activeImageIndex !== null}
                 onClose={handleCloseLightbox}
-                PaperProps={{
-                    sx: {
-                        backgroundColor: 'rgba(15, 23, 42, 0.98)',
-                        backgroundImage: 'none',
-                        display: 'flex',
-                        flexDirection: 'column',
-                        justifyContent: 'space-between',
-                        boxShadow: 'none',
-                        overflow: 'hidden'
+                slotProps={{
+                    paper: {
+                        sx: {
+                            backgroundColor: 'rgba(15, 23, 42, 0.98)',
+                            backgroundImage: 'none',
+                            display: 'flex',
+                            flexDirection: 'column',
+                            justifyContent: 'space-between',
+                            boxShadow: 'none',
+                            overflow: 'hidden'
+                        }
                     }
                 }}
             >

@@ -2,28 +2,18 @@
 
 import React from 'react';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 import { Box, Container, Typography, Button, Grid, Divider } from '@mui/material';
 import { motion } from 'framer-motion';
-import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import { projectData } from '@/data/projectData';
 
 export default function Hero() {
     const { hero } = projectData;
+    const router = useRouter();
 
-    const handleExploreScroll = () => {
-        const target = document.getElementById('project');
-        if (target) {
-            const offset = 80; // Offset for sticky header
-            const bodyRect = document.body.getBoundingClientRect().top;
-            const targetRect = target.getBoundingClientRect().top;
-            const targetPosition = targetRect - bodyRect;
-            const offsetPosition = targetPosition - offset;
-
-            window.scrollTo({
-                top: offsetPosition,
-                behavior: 'smooth'
-            });
-        }
+    const handleExploreClick = () => {
+        router.push('/upcoming-projects');
     };
 
     return (
@@ -126,8 +116,8 @@ export default function Hero() {
                                 <Button
                                     variant="contained"
                                     color="secondary"
-                                    onClick={handleExploreScroll}
-                                    endIcon={<ArrowDownwardIcon />}
+                                    onClick={handleExploreClick}
+                                    endIcon={<ArrowForwardIcon />}
                                     sx={{
                                         padding: '18px 48px',
                                         fontSize: '0.9rem',
@@ -136,7 +126,7 @@ export default function Hero() {
                                         color: '#FFFFFF'
                                     }}
                                 >
-                                    Explore Project
+                                    View Upcoming Projects
                                 </Button>
                             </motion.div>
                         </Box>
@@ -164,6 +154,7 @@ export default function Hero() {
                                 <Image
                                     src={hero.bgImage}
                                     alt="Cinematic entryway to premium plotted development"
+                                    title="Snycon United Serenity - Grand Entryway Gate"
                                     fill
                                     quality={90}
                                     priority

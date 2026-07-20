@@ -125,7 +125,7 @@ export default function FeaturedProject() {
                                         height: '100%',
                                         backgroundImage: `url(${featuredProject.coverImage})`,
                                         backgroundSize: 'cover',
-                                        backgroundPosition: 'center',
+                                        backgroundPosition: 'center 27%',
                                         transition: 'transform 1.2s cubic-bezier(0.16, 1, 0.3, 1)',
                                         '&:hover': {
                                             transform: 'scale(1.05)'

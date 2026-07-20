@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
+import { usePathname, useRouter } from 'next/navigation';
 import site from '@/data/site';
 import {
     AppBar,
@@ -13,22 +14,26 @@ import {
     List,
     ListItem,
     ListItemButton,
-    ListItemText,
-    Button
+    Button,
+    Typography
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 
 const navItems = [
     { label: 'Home', id: 'home' },
-    { label: 'Project', id: 'project' },
-    { label: 'Contact', id: 'contact' }
+    { label: 'Upcoming', id: 'upcoming-projects', isRoute: true },
+    { label: 'Partners', id: 'partners', isRoute: true },
+    { label: 'Finder', id: 'property-finder', isRoute: true },
+    { label: 'Refer & Earn', id: 'referrals', isRoute: true }
 ];
 
 export default function Navbar() {
     const [scrolled, setScrolled] = useState(false);
     const [mobileOpen, setMobileOpen] = useState(false);
     const [activeSection, setActiveSection] = useState('home');
+    const pathname = usePathname();
+    const router = useRouter();
 
     useEffect(() => {
         const handleScroll = () => {
@@ -40,41 +45,53 @@ export default function Navbar() {
             }
 
             // Track active section to highlight active nav link
-            const scrollPosition = window.scrollY + 120;
-            for (const item of navItems) {
-                const el = document.getElementById(item.id);
-                if (el) {
-                    const top = el.offsetTop;
-                    const height = el.offsetHeight;
-                    if (scrollPosition >= top && scrollPosition < top + height) {
-                        setActiveSection(item.id);
+            if (pathname === '/') {
+                const scrollPosition = window.scrollY + 120;
+                for (const item of navItems) {
+                    if (item.isRoute) continue;
+                    const el = document.getElementById(item.id);
+                    if (el) {
+                        const top = el.offsetTop;
+                        const height = el.offsetHeight;
+                        if (scrollPosition >= top && scrollPosition < top + height) {
+                            setActiveSection(item.id);
+                        }
                     }
                 }
+            } else {
+                const routeId = pathname.replace('/', '');
+                setActiveSection(routeId);
             }
         };
 
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
+    }, [pathname]);
 
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
     };
 
-    const handleNavClick = (id) => {
+    const handleNavClick = (item) => {
         setMobileOpen(false);
-        const element = document.getElementById(id);
-        if (element) {
-            const offset = 80; // Offset to clear sticky navbar height
-            const bodyRect = document.body.getBoundingClientRect().top;
-            const elementRect = element.getBoundingClientRect().top;
-            const elementPosition = elementRect - bodyRect;
-            const offsetPosition = elementPosition - offset;
+        if (item.isRoute) {
+            router.push(`/${item.id}`);
+        } else if (pathname !== '/') {
+            router.push(`/#${item.id}`);
+        } else {
+            const element = document.getElementById(item.id);
+            if (element) {
+                const offset = 80; // Offset to clear sticky navbar height
+                const bodyRect = document.body.getBoundingClientRect().top;
+                const elementRect = element.getBoundingClientRect().top;
+                const elementPosition = elementRect - bodyRect;
+                const offsetPosition = elementPosition - offset;
 
-            window.scrollTo({
-                top: offsetPosition,
-                behavior: 'smooth'
-            });
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+            }
         }
     };
 
@@ -98,7 +115,7 @@ export default function Navbar() {
 
                         {/* Logo Unit - Left Section */}
                         <Box
-                            onClick={() => handleNavClick('home')}
+                            onClick={() => handleNavClick({ id: 'home' })}
                             sx={{
                                 display: 'flex',
                                 alignItems: 'center',
@@ -116,6 +133,7 @@ export default function Navbar() {
                                 width={56} 
                                 height={56} 
                                 alt={site.logoAlt} 
+                                title="10KPlots - Invest in Land. Invest in Life."
                                 style={{ objectFit: 'contain' }} 
                             />
                         </Box>
@@ -127,7 +145,7 @@ export default function Navbar() {
                                 return (
                                     <Box
                                         key={item.id}
-                                        onClick={() => handleNavClick(item.id)}
+                                        onClick={() => handleNavClick(item)}
                                         sx={{
                                             fontFamily: '"Inter", sans-serif',
                                             fontWeight: 500,
@@ -186,7 +204,7 @@ export default function Navbar() {
                             {/* Desktop Elegant Gold CTA button */}
                             <Button
                                 variant="outlined"
-                                onClick={() => handleNavClick('contact')}
+                                onClick={() => handleNavClick({ id: 'contact' })}
                                 sx={{
                                     display: { xs: 'none', md: 'inline-flex' },
                                     borderColor: '#C59D5F',
@@ -220,16 +238,18 @@ export default function Navbar() {
                 open={mobileOpen}
                 onClose={handleDrawerToggle}
                 ModalProps={{ keepMounted: true }}
-                PaperProps={{
-                    sx: {
-                        width: '280px',
-                        backgroundColor: '#FFFFFF',
-                        backgroundImage: 'none',
-                        borderLeft: '1px solid #E7E5E4',
-                        padding: '30px 20px',
-                        display: 'flex',
-                        flexDirection: 'column',
-                        justifyContent: 'space-between'
+                slotProps={{
+                    paper: {
+                        sx: {
+                            width: '280px',
+                            backgroundColor: '#FFFFFF',
+                            backgroundImage: 'none',
+                            borderLeft: '1px solid #E7E5E4',
+                            padding: '30px 20px',
+                            display: 'flex',
+                            flexDirection: 'column',
+                            justifyContent: 'space-between'
+                        }
                     }
                 }}
             >
@@ -253,7 +273,7 @@ export default function Navbar() {
                             return (
                                 <ListItem key={item.id} disablePadding>
                                     <ListItemButton
-                                        onClick={() => handleNavClick(item.id)}
+                                        onClick={() => handleNavClick(item)}
                                         sx={{
                                             padding: '12px 16px',
                                             borderRadius: '4px',
@@ -264,9 +284,8 @@ export default function Navbar() {
                                             }
                                         }}
                                     >
-                                        <ListItemText
-                                            primary={item.label}
-                                            primaryTypographyProps={{
+                                        <Typography
+                                            sx={{
                                                 fontFamily: '"Poppins", sans-serif',
                                                 fontWeight: 500,
                                                 fontSize: '1rem',
@@ -274,7 +293,9 @@ export default function Navbar() {
                                                 textTransform: 'uppercase',
                                                 color: isActive ? '#C59D5F' : '#0F172A'
                                             }}
-                                        />
+                                        >
+                                            {item.label}
+                                        </Typography>
                                     </ListItemButton>
                                 </ListItem>
                             );

@@ -2,32 +2,44 @@
 
 import React from 'react';
 import { Box, Container, Grid, Typography, Divider } from '@mui/material';
+import { usePathname, useRouter } from 'next/navigation';
 import { projectData } from '@/data/projectData';
 import site from '@/data/site';
 import Image from 'next/image';
 
 const footerNavItems = [
     { label: 'Home', id: 'home' },
-    { label: 'Project', id: 'project' },
+    { label: 'Upcoming', id: 'upcoming-projects', isRoute: true },
+    { label: 'Partners', id: 'partners', isRoute: true },
+    { label: 'Finder', id: 'property-finder', isRoute: true },
+    { label: 'Refer & Earn', id: 'referrals', isRoute: true },
     { label: 'Contact', id: 'contact' }
 ];
 
 export default function Footer() {
     const { reraNumber } = projectData;
+    const pathname = usePathname();
+    const router = useRouter();
 
-    const handleFooterNavClick = (id) => {
-        const element = document.getElementById(id);
-        if (element) {
-            const offset = 80; // Clear sticky header
-            const bodyRect = document.body.getBoundingClientRect().top;
-            const elementRect = element.getBoundingClientRect().top;
-            const elementPosition = elementRect - bodyRect;
-            const offsetPosition = elementPosition - offset;
+    const handleFooterNavClick = (item) => {
+        if (item.isRoute) {
+            router.push(`/${item.id}`);
+        } else if (pathname !== '/') {
+            router.push(`/#${item.id}`);
+        } else {
+            const element = document.getElementById(item.id);
+            if (element) {
+                const offset = 80; // Clear sticky header
+                const bodyRect = document.body.getBoundingClientRect().top;
+                const elementRect = element.getBoundingClientRect().top;
+                const elementPosition = elementRect - bodyRect;
+                const offsetPosition = elementPosition - offset;
 
-            window.scrollTo({
-                top: offsetPosition,
-                behavior: 'smooth'
-            });
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+            }
         }
     };
 
@@ -57,6 +69,7 @@ export default function Footer() {
                                     width={48} 
                                     height={48} 
                                     alt={site.logoAlt} 
+                                    title="10KPlots - Secure Your Footprint"
                                     style={{ objectFit: 'contain' }} 
                                 />
                                 <Typography
@@ -96,7 +109,7 @@ export default function Footer() {
                             {footerNavItems.map((item) => (
                                 <Typography
                                     key={item.id}
-                                    onClick={() => handleFooterNavClick(item.id)}
+                                    onClick={() => handleFooterNavClick(item)}
                                     sx={{
                                         fontFamily: '"Inter", sans-serif',
                                         fontWeight: 500,

@@ -1,0 +1,53 @@
+export const upcomingProjects = [
+    {
+        id: "united-meadows",
+        title: "United Meadows Layout",
+        type: "Layout",
+        developer: "Snycon United Group",
+        location: "Hoskote Malur Highway, East Bangalore",
+        expectedLaunch: "Q4 2026",
+        landArea: "45 Acres",
+        reraStatus: "Applied",
+        reraNumber: "Receipt No: PRM/KA/RERA/1265/TEMP/08",
+        appreciation: "+25% Expected",
+        highlights: "Premium plotted layout with asphalted wide roads, overhead water tanks, concealed utilities, and 10 beautiful theme parks.",
+        benefits: "Buy raw plotted land at wholesale prices before the grand launch. Land is a highly stable asset with high appreciation and zero maintenance costs.",
+        constructionProgress: 15,
+        registrationDate: "November 30, 2026",
+        image: "/gallery/gallery3.avif"
+    },
+    {
+        id: "serenity-phase-2",
+        title: "Snycon Serenity Phase II",
+        type: "Plot",
+        developer: "Snycon Infrastructure",
+        location: "Malur Highway, East Bangalore",
+        expectedLaunch: "Q1 2027",
+        landArea: "35 Acres",
+        reraStatus: "Approved",
+        reraNumber: "PRM/KA/RERA/1265/347/PR/200527/009911",
+        appreciation: "+25% Expected",
+        highlights: "Premium residential plot development with wide asphalt roads, overhead water tank, 24/7 security.",
+        benefits: "High growth potential in East Bangalore's industrial corridors. Excellent road connectivity.",
+        constructionProgress: 20,
+        registrationDate: "February 15, 2027",
+        image: "/gallery/gallery4.avif"
+    },
+    {
+        id: "aerotropolis-layout",
+        title: "Aerotropolis View Layout",
+        type: "Layout",
+        developer: "Snycon Premium Estates",
+        location: "Devanahalli, North Bangalore",
+        expectedLaunch: "Q3 2027",
+        landArea: "50 Acres",
+        reraStatus: "Upcoming",
+        reraNumber: "Filing in progress",
+        appreciation: "+35% Expected",
+        highlights: "Modern plotted development layout near Kempegowda International Airport.",
+        benefits: "First-mover advantage in North Bangalore airport corridor. Rapid land capital value growth.",
+        constructionProgress: 10,
+        registrationDate: "June 30, 2027",
+        image: "/gallery/gallery5.avif"
+    }
+];

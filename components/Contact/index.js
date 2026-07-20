@@ -14,7 +14,7 @@ export default function Contact() {
     };
 
     const handleWhatsAppChat = () => {
-        const encodedMessage = encodeURIComponent('Hello 10KPlots, I would like to schedule a private site visit.');
+        const encodedMessage = encodeURIComponent('Hello 10KPlots, I would like to coordinate a meeting at your office for a Snycon United Serenity site visit.');
         window.open(`${site.whatsappUrl}?text=${encodedMessage}`, '_blank');
     };
 
@@ -142,7 +142,7 @@ export default function Contact() {
                                             variant="body2"
                                             sx={{ fontFamily: '"Inter", sans-serif', color: '#64748B', fontSize: '0.9rem' }}
                                         >
-                                            Call us for direct purchase structures and site coordination.
+                                            Contact our advisory team to discuss flexible purchase structures or to coordinate your private site walkthrough.
                                         </Typography>
                                     </Box>
                                     <Button
@@ -204,7 +204,7 @@ export default function Contact() {
                                             variant="body2"
                                             sx={{ fontFamily: '"Inter", sans-serif', color: '#64748B', fontSize: '0.9rem' }}
                                         >
-                                            Request legal documents, site plans, and layout maps instantly on WhatsApp.
+                                            Receive verified legal documents, master plans, and layout maps instantly via WhatsApp.
                                         </Typography>
                                     </Box>
                                     <Button

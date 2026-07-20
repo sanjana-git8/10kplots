@@ -8,6 +8,7 @@ import Navbar from '@/components/navbar';
 import Hero from '@/components/Hero';
 import Story from '@/components/Story';
 import FeaturedProject from '@/components/FeaturedProject';
+import WhyInvest from '@/components/WhyInvest';
 import MasterPlan from '@/components/MasterPlan';
 import Gallery from '@/components/Gallery';
 import Location from '@/components/Location';
@@ -39,17 +40,25 @@ export default function Home() {
                 {/* Section 2: Heritage brand storytelling block */}
                 <Story />
 
-                {/* Section 3: flagship project detail deck */}
+                {/* Section 3: flagship project detail deck - Hidden (No active projects)
                 <FeaturedProject />
+                */}
 
-                {/* Section 4: Multi-level Interactive blueprint viewer */}
+                {/* Section 3.5: Strategic Investment Benefits - Hidden (No active projects)
+                <WhyInvest />
+                */}
+
+                {/* Section 4: Multi-level Interactive blueprint viewer - Hidden (No active projects)
                 <MasterPlan />
+                */}
 
-                {/* Section 5: Masonry photography exhibit */}
+                {/* Section 5: Masonry photography exhibit - Hidden (No active projects)
                 <Gallery />
+                */}
 
-                {/* Section 6: Location proximity & mapping coordinate matrix */}
+                {/* Section 6: Location proximity & mapping coordinate matrix - Hidden (No active projects)
                 <Location />
+                */}
 
                 {/* Section 7: Conversions & private client advisory desk */}
                 <Contact />

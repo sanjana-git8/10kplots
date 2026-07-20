@@ -1,5 +1,5 @@
 export const projectData = {
-    reraNumber: "PRM/KA/RERA/1251/472/PR/210907/004312",
+    reraNumber: "PRM/KA/RERA/1265/347/PR/130825/007992",
     contact: {
         whatsapp: "919743351519",
     },
@@ -26,12 +26,12 @@ export const projectData = {
     },
     featuredProject: {
         title: "Snycon United Serenity",
-        location: "Malur, Kolar Road, East Bengaluru Corridor",
+        location: "Hoskote Malur highway",
         coverImage: "/images/featured-project.avif",
         description: "Experience premium living with world-class amenities, legal security, and excellent connectivity. Snycon United Serenity offers meticulously planned residential plots with immediate registration, asphalted wide roads, overhead water tanks, and a peaceful community environment.",
         whatsappMessage: "Hello, I am interested in Snycon United Serenity. Please send me the brochure and available plot list.",
-        approvals: "RERA Approved, A-Katha plots with clear titles and bank loan approvals from major financial institutions.",
-        pricing: "Limited inventory of premium plots starting from attractive ticket sizes. Exclusive private tours available.",
+        approvals: "RERA APPROVED, MPA APPROVED, DC CONVERTED, A KHATHA PROPERTY",
+        pricing: "Limited inventory of premium plots starting from attractive ticket sizes. Please meet us directly at our office for site walkthroughs.",
         masterPlanImage: "/layout/layout-plan.avif"
     },
     location: {
@@ -45,13 +45,83 @@ export const projectData = {
         ]
     },
     gallery: [
-        { id: 1, url: "/gallery/gallery1.avif", title: "Scenic View of Green Landscapes" },
-        { id: 2, url: "/gallery/gallery2.avif", title: "Premium Gated Community Entryway" },
-        { id: 3, url: "/gallery/gallery3.avif", title: "Beautiful Tree-lined Avenues" },
-        { id: 4, url: "/gallery/gallery4.avif", title: "Wide Internal Asphalted Roads" },
-        { id: 5, url: "/gallery/gallery5.avif", title: "Modern Underground Cable Infrastructure" },
-        { id: 6, url: "/gallery/gallery6.avif", title: "Plush Park & Children's Play Zone" },
-        { id: 8, url: "/gallery/gallery8.avif", title: "Elegant Community Seating Area" },
-        { id: 9, url: "/gallery/gallery9.avif", title: "Lush Waterbody & Walking Tracks" }
-    ]
+        { id: 1, url: "/gallery/gallery1.avif", title: "Upcoming Clubhouse Construction Site" },
+        { id: 2, url: "/gallery/gallery2.avif", title: "Plotted Layout with Coconut Trees" },
+        { id: 3, url: "/gallery/gallery3.avif", title: "Completed Kerbstoning and Greenery" },
+        { id: 4, url: "/gallery/gallery4.avif", title: "Wide Internal Cement Roads" },
+        { id: 5, url: "/gallery/gallery5.avif", title: "Scenic View of Developed Plots" },
+        { id: 6, url: "/gallery/gallery6.avif", title: "Asphalted Roads and Layout Boundaries" },
+    ],
+    whyInvest: {
+        title: "Why Invest in Snycon United Serenity?",
+        reasons: [
+            {
+                id: "location",
+                number: "01",
+                badge: "Golden Triangle",
+                title: "The \"Golden Triangle\" Location",
+                description: "Strategically located within the high-growth Malur - Hoskote - Narsapura Golden Triangle. Places your investment directly in the path of massive industrial and infrastructure growth."
+            },
+            {
+                id: "industrial",
+                number: "02",
+                badge: "Industrial Hub",
+                title: "Massive Industrial & Investment Growth",
+                description: "Positioned next to heavy commercial expansion, ensuring high rental and resale demand:",
+                bullets: [
+                    "Minutes away from major employment centers like Malur & Narsapura Industrial Areas.",
+                    "Boosted by the upcoming $600 Million JICA investment near Malur guarantees rapid economic development."
+                ]
+            },
+            {
+                id: "connectivity",
+                number: "03",
+                badge: "Quick Commute",
+                title: "Mega-Highway & IT Connectivity",
+                description: "Enables zero-stress commutes to East Bengaluru's key IT and commercial zones:",
+                bullets: [
+                    "Direct access to NH-75 and the high-speed Bangalore-Chennai Expressway.",
+                    "Smooth travel via the Hoskote-Malur 100ft road and 6-lane signal-free highway.",
+                    "Quick commutes to major IT hubs (Whitefield, ITPL, KR Puram, Hoskote)."
+                ]
+            },
+            {
+                id: "accessibility",
+                number: "04",
+                badge: "Outer Ring Road",
+                title: "Excellent Local Accessibility & Future Ring Road",
+                description: "Unmatched connectivity that will multiply future property valuation:",
+                bullets: [
+                    "The upcoming 80ft Malur Outer Ring Road passes right by the layout boundary.",
+                    "Phase 1 of the Ring Road is fully completed for immediate accessibility."
+                ]
+            },
+            {
+                id: "legal",
+                number: "05",
+                badge: "100% Legal",
+                title: "100% Legal & Secure",
+                description: "Invest with absolute peace of mind. A fully RERA approved, MPA approved, DC Converted property with clear, registration-ready A-Khatha titles."
+            },
+            {
+                id: "amenities",
+                number: "06",
+                badge: "Premium Living",
+                title: "Premium Amenities at an Unbeatable Price",
+                description: "Offered at an attractive launch rate of just ₹2,890 per sq. ft., this modern 342-plot township features:",
+                bullets: [
+                    "19 Beautiful Landscaped Thematic Parks & green open spaces.",
+                    "Grand Clubhouse & Swimming Pool for community recreation.",
+                    "Yoga Huts, Jogging Tracks, and kids' play zones.",
+                    "Underground Electricity, individual water lines, and modern STP."
+                ]
+            }
+        ],
+        urgency: {
+            icon: "⚠️",
+            badge: "Act Fast",
+            title: "ACT FAST & EXCLUSIVE OFFER",
+            text: "Secure a high-value asset for your family’s future. Reserve your premium plot today with an initial booking amount of just ₹1 Lakh. Take advantage of our exclusive Ashada Masam Offer (clubhouse charges excluded) before our limited inventory of choice East-facing, North-facing, and corner plots is fully sold out!"
+        }
+    }
 };

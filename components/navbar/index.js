@@ -24,7 +24,6 @@ const navItems = [
     { label: 'Home', id: 'home' },
     { label: 'Upcoming', id: 'upcoming-projects', isRoute: true },
     { label: 'Partners', id: 'partners', isRoute: true },
-    { label: 'Finder', id: 'property-finder', isRoute: true },
     { label: 'Refer & Earn', id: 'referrals', isRoute: true }
 ];
 
